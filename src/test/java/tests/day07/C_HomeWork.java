@@ -46,7 +46,7 @@ public class C_HomeWork {
         //3.adim istedigin option'u select objesi kullanarak seç
         List<WebElement> kategori=select.getOptions();
         System.out.println("kategori menüsünde "+kategori.size()+" tane öge var");
-        Assert.assertTrue(kategori.size()==45,"kategori menusundeki kategori sayisinin 45 mi testti?");
+        Assert.assertEquals(45,kategori.size(),"menude 45 option yoktur  ");
 
     }
     @Test (priority = 2)
