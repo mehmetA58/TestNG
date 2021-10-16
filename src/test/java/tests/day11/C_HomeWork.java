@@ -30,28 +30,28 @@ public class C_HomeWork {
     public void Test() throws InterruptedException {
         driver.get("http://webdriveruniversity.com/Actions");
 //2- Hover over Me First" kutusunun ustune gelin
-        Actions actions = new Actions(driver);
-        WebElement mouseHover = driver.findElement(By.xpath("(//div[@class='dropdown hover'])"));
-        actions.moveToElement(mouseHover);
-        actions.perform();
-        //Thread.sleep(2000);
-        //3- Link 1" e tiklayin
-        driver.findElement(By.xpath("//*[@id=\"div-hover\"]/div[1]/div/a")).click();
-        //4- Popup mesajini yazdirin
-        System.out.println( driver.switchTo (). alert (). getText ());
-        //5- Popup'i tamam diyerek kapatin
-        driver.switchTo (). alert (). accept ();
-        //6- “Click and hold" kutusuna basili tutun
-        WebElement clickAndHold=driver.findElement(By.id("click-box"));
-        Actions action = new Actions(driver);
+Actions actions=new Actions(driver);
+WebElement hoverOverMeFirst= driver.findElement(By.xpath("(//div[@class='dropdown hover'])"));
+actions.moveToElement(hoverOverMeFirst).perform();
 
-        action.clickAndHold(clickAndHold).perform();
+        //3- Link 1" e tiklayin
+        driver.findElement(By.xpath("(//a[@class='list-alert'])")).click();
+        //4- Popup mesajini yazdirin
+        System.out.println(driver.switchTo().alert().getText());
+        //5- Popup'i tamam diyerek kapatin
+        driver.switchTo().alert().accept();
+        //6- “Click and hold" kutusuna basili tutun
+WebElement clickAndHold=driver.findElement(By.id("click-box"));
+actions.clickAndHold(clickAndHold).perform();
+
+
        // 7-“Click and hold" kutusunda cikan yaziyi yazdirin
-        System.out.println(driver.findElement(By.id("click-box")).getText());
+        System.out.println(clickAndHold.getText());
 
         //8- “Double click me" butonunu cift tiklayin
         WebElement doubleClickMe=driver.findElement(By.tagName("h2"));
-        action.doubleClick(doubleClickMe).perform();
+        actions.doubleClick(doubleClickMe).perform();
+
     }
     @AfterClass
     public void tearDown() {
