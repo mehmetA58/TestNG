@@ -1,4 +1,4 @@
-package tests.day07;
+package tests.homeWorkDay;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.By;
@@ -13,7 +13,7 @@ import org.testng.annotations.*;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 
-public class C_HomeWork {
+public class Day07_HomeWork_Assert {
     //● Bir class oluşturun: C3_DropDownAmazon
     //● https://www.amazon.com/ adresine gidin.
     //- Test 1

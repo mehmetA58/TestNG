@@ -1,4 +1,4 @@
-package tests.day09;
+package tests.homeWorkDay;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.By;
@@ -26,7 +26,7 @@ import java.util.concurrent.TimeUnit;
 // ana iframe'e geri dön
 //formu doldurun,(Formu istediğiniz metinlerle doldurun)
 // uygula butonuna tıklayın
-public class C_HomeWorkMentor {
+public class Day09_HomeWorkMentor {
     WebDriver driver;
 
 

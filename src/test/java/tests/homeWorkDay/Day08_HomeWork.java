@@ -1,4 +1,4 @@
-package tests.day08;
+package tests.homeWorkDay;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.By;
@@ -16,7 +16,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 
-public class C_HomeWork {
+public class Day08_HomeWork {
     /**
      * Navigate to  https://www.saucedemo.com/
      * Enter the user name  as standard_user

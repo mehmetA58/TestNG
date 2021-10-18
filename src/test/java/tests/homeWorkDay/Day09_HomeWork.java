@@ -1,4 +1,4 @@
-package tests.day09;
+package tests.homeWorkDay;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.By;
@@ -13,7 +13,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 
-public class C_HomeWork {
+public class Day09_HomeWork {
     WebDriver driver;
 
 

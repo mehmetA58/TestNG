@@ -1,4 +1,4 @@
-package tests.day10;
+package tests.homeWorkDay;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.By;
@@ -12,7 +12,7 @@ import org.testng.annotations.Test;
 
 import java.util.concurrent.TimeUnit;
 
-public class C_HomeWork {
+public class Day10_HomeWork {
 
 
 

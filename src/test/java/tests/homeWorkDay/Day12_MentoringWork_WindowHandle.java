@@ -1,4 +1,4 @@
-package tests.day12;
+package tests.homeWorkDay;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.By;
@@ -25,7 +25,7 @@ import java.util.concurrent.TimeUnit;
        ilk pencereye geç
 
       */
-public class C_HomeWork {
+public class Day12_MentoringWork_WindowHandle {
     WebDriver driver;
 
 
@@ -46,7 +46,7 @@ public class C_HomeWork {
         //      switch to window
         //      input email id (somepne@gmail.com) and type something in that input
         driver.get("http://demo.guru99.com/popup.php");
-String ilkPencere=driver.getWindowHandle();
+        String ilkPencere=driver.getWindowHandle();
         System.out.println("ilk pencere : "+ilkPencere);
 
         driver.findElement(By.linkText("Click Here")).click();
@@ -66,11 +66,12 @@ String ilkPencere=driver.getWindowHandle();
         Thread.sleep(2000);
 
        // Clicking on the submit button
-        driver.findElement(By.xpath("(//input[@name='emailid'])")).sendKeys("somepne@gmail.com"+ Keys.ENTER);
+        driver.findElement(By.xpath("(//input[@name='emailid'])")).sendKeys("somepne@gmail.com");
+        driver.findElement(By.xpath("(//input[@name='btnLogin'])")).click();
         // verify title as expected
         SoftAssert softAssert= new SoftAssert();//-->test edin diyorsa hard assertion, verify diyorsa soft assertion
-        softAssert.assertEquals(driver.getTitle(),"Guru99 Bank Home Page","başlık beklendiği gibi değil");
-
+        softAssert.assertEquals(driver.findElement(By.tagName("h3")).getText(),"This access is valid only for 20 days.","Actual text does not equals expected text");
+        softAssert.assertAll();
         //      switch to first window
         driver.switchTo().window(ilkPencere);
 

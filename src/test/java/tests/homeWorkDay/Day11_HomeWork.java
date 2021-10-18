@@ -1,4 +1,4 @@
-package tests.day11;
+package tests.homeWorkDay;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.By;
@@ -17,7 +17,7 @@ import java.util.concurrent.TimeUnit;
 1- "http://webdriveruniversity.com/Actions" sayfasina gidin
 */
 
-public class C_HomeWork {
+public class Day11_HomeWork {
     WebDriver driver;
     @BeforeMethod
     public void setup(){

@@ -1,4 +1,4 @@
-package tests.day07;
+package tests.homeWorkDay;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.By;
@@ -13,7 +13,7 @@ import org.testng.annotations.Test;
 
 import java.util.concurrent.TimeUnit;
 
-public class C_HomeWork02 {
+public class Day07_HomeWork_Selected {
     WebDriver driver;
 
 

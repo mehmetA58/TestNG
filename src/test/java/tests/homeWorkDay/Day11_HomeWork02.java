@@ -1,4 +1,4 @@
-package tests.day11;
+package tests.homeWorkDay;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -9,7 +9,7 @@ import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import java.util.concurrent.TimeUnit;
-public class C_HomeWork02 {
+public class Day11_HomeWork02 {
     //    go to url :http://demo.automationtesting.in/Alerts.html
     //    click  "Alert with OK" and click 'click the button to display an alert box:'
     //    accept Alert(I am an alert box!) and print alert on console
