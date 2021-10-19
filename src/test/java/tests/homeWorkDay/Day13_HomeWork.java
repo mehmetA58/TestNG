@@ -12,6 +12,7 @@ import org.testng.annotations.Test;
 import org.testng.collections.CollectionUtils;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.Set;
 import java.util.concurrent.TimeUnit;
@@ -28,9 +29,13 @@ import static org.testng.Assert.assertTrue;
     ~ compare the names from displaying list and cart list
 
 */
+//clickAllElements
+//getName
+//compareTwoList
 public class Day13_HomeWork {
-
+    List<String> markaAdlarıSepet=new ArrayList<>();
     WebDriver driver;
+    List<String> AddToCartAdlarıSepet=new ArrayList<>();
     @BeforeClass
     public void setup () {
         WebDriverManager.chromedriver().setup();
@@ -48,36 +53,52 @@ public class Day13_HomeWork {
         // ~ Telefonlar ve PDA'lara tıklayın
         driver.findElement(By.linkText("Phones & PDAs")).click();
 
+
     }
     @Test (priority = 2)
     public void getName() throws InterruptedException {
-    //~ telefonların marka adını alın
+        //~ telefonların marka adını alın
 
-
-        List<WebElement> markalar = driver.findElements(By.tagName("h4"));
-        for (WebElement w : markalar) {
-
-            System.out.println("markalar: " + w.getText());
+        List<WebElement> markaAdları=driver.findElements(By.tagName("h4"));
+        for (WebElement w:markaAdları) {
+            markaAdlarıSepet.add(w.getText());
         }
+        System.out.println(markaAdlarıSepet.size());
+        System.out.println(markaAdlarıSepet.get(0));
+        System.out.println(markaAdlarıSepet.get(1));
+        System.out.println(markaAdlarıSepet.get(2));
 
         //~ tüm öğeler için ekle düğmesine tıklayın
-        List<WebElement> AddToCart = driver.findElements(By.xpath("//span[text()='Add to Cart']"));
-        for (WebElement w : AddToCart) {
-        w.click();
+List<WebElement> AddToCart=driver.findElements(By.xpath("//span[text()='Add to Cart']"));
+        for (WebElement w:AddToCart) {
+            w.click();
         }
-      //  ~ siyah toplam eklenen sepet düğmesine tıklayın
-        Thread.sleep(2000);
-    driver.findElement(By.id("cart-total")).click();
+Thread.sleep(2000);
+       // AddToCart.stream().forEach(t->t.click());
+        //  ~ siyah toplam eklenen sepet düğmesine tıklayın
+        driver.findElement(By.xpath("(//span[@id='cart-total'])")).click();
+
+
+    }
+
+    @Test (priority = 3)
+    public void compareTwoList(){
 
         // ~ listenin isimlerini sepetten alın
-        List<WebElement> sepet = driver.findElements(By.xpath("(//td[@class='text-left'])"));
-        for (WebElement w : sepet) {
-            System.out.println(w.getText());
-        }
+List<WebElement> compareList=driver.findElements(By.xpath("(//td[@class='text-left'])"));
 
+        for (WebElement w:compareList) {
+        AddToCartAdlarıSepet.add(w.getText());
+        }
+        System.out.println(AddToCartAdlarıSepet.get(0));
+        System.out.println(AddToCartAdlarıSepet.get(1));
+        System.out.println(AddToCartAdlarıSepet.get(2));
 
         //  ~ listeden ve sepet listesinden isimleri karşılaştırın
-        Assert.assertTrue(sepet.listIterator().next().getText().contains(markalar.listIterator().next().getText()));
+        Collections.sort(markaAdlarıSepet);
+        Collections.sort(AddToCartAdlarıSepet);
+
+        Assert.assertEquals(markaAdlarıSepet,AddToCartAdlarıSepet,"listeler eşit degil");
 
     }
 
@@ -85,7 +106,7 @@ public class Day13_HomeWork {
 
     @AfterClass
         public void tearDown() {
-driver.quit();
+        driver.quit();
 
     }
 

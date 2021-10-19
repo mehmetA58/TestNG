@@ -47,26 +47,27 @@ public class Day12_Sunday_HomeWorkIframe {
         //2. “Our Products” butonuna basin
         driver.findElement(By.linkText("Our Products")).click();
         //3. “Cameras product”i tiklayin
-        driver.findElement(By.id("camera-img")).click();
-        Thread.sleep(3000);
+    driver.findElement(By.id("camera-img")).click();
         //4. Popup mesajini yazdirin
+        Thread.sleep(2000);
+    String popupMesajı=driver.findElement(By.xpath("(//div[@class='modal-header'])")).getText();
+    String popupmesaji2=driver.findElement(By.xpath("(//div[@class='modal-body'])")).getText();
+    System.out.println(popupMesajı+popupmesaji2);
 
-        String popupYazısı=driver.findElement(By.xpath("(//div[@class='modal-content'])")).getText();//TRİCK---> popup'ımsı ama degil.
-
-        System.out.println(popupYazısı);
 
         //5. “close” butonuna basin
-        driver.findElement(By.xpath("//*[@id=\"myModal\"]/div/div/div[3]/button[2]")).click();
 
-        driver.switchTo().defaultContent();
+driver.findElement(By.xpath("(//button[text()='Close'])")).click();
         //6. "WebdriverUniversity.com (IFrame)" linkini tiklayin
-        driver.findElement(By.xpath("//*[@id=\"nav-title\"]")).click();
+        driver.switchTo().defaultContent();
+driver.findElement(By.xpath("(//a[@id='nav-title'])[1]")).click();
 
         //7. "http://webdriveruniversity.com/index.html" adresine gittigini test edin
-        //-->test edin dediği için Hard Assert
         String actualURL=driver.getCurrentUrl();
-        String expectedURL="http://webdriveruniversity.com/index.html";
-        Assert.assertEquals(actualURL,expectedURL,"beklenen url yanlış");
+        String expURL="http://webdriveruniversity.com/index.html";
+
+        Assert.assertTrue(actualURL.equals(expURL),"url beklendiği gibi değil");
+        //-->test edin dediği için Hard Assert
 
     }
 
