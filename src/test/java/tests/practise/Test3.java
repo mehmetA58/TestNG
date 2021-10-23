@@ -6,6 +6,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.Select;
+import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
@@ -36,21 +37,23 @@ public class Test3 {
         WebElement dropDownAy=driver.findElement(By.name("birthday_month"));
         WebElement dropDownYil=driver.findElement(By.name("birthday_year"));
 
-        Select select1=new Select(dropdownGun);
-        Select select2=new Select(dropDownAy);
-        Select select3=new Select(dropDownYil);
+        Select select=new Select(dropdownGun);
 
-        List<WebElement> gunler=select1.getOptions();
+
+
+        List<WebElement> gunler=select.getOptions();
         System.out.println("=================gunler====================");
         for (WebElement w:gunler) {
             System.out.println(w.getText());
         }
-        List<WebElement> aylar=select2.getOptions();
+        select=new Select(dropDownAy);
+        List<WebElement> aylar=select.getOptions();
         System.out.println("=====================aylar========================");
         for (WebElement w:aylar) {
             System.out.println(w.getText());
         }
-        List<WebElement> yillar=select3.getOptions();
+        select=new Select(dropDownYil);
+        List<WebElement> yillar=select.getOptions();
         System.out.println("======================yillar================");
         for (WebElement w:yillar) {
             System.out.println(w.getText());
@@ -58,4 +61,9 @@ public class Test3 {
 
 
     }
+    @AfterMethod
+    public void tearDown(){
+        driver.quit();
+    }
+
 }
