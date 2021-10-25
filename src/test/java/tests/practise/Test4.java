@@ -14,12 +14,6 @@ import java.util.Set;
 
 public class Test4 {
 
-
-
-
-
-
-
     WebDriver driver;
     @BeforeMethod
     public void setup(){
