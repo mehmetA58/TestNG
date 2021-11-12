@@ -23,8 +23,7 @@ public class C03_MouseActions01 extends TestBase {
         WebElement ciziliAlan=driver.findElement(By.id("hot-spot"));
         actions.contextClick(ciziliAlan).perform();
 
-        //4- Alert’te cikan yazinin “You selected a context menu” oldugunu
-//   test edelim.
+        //4- Alert’te cikan yazinin “You selected a context menu” oldugunu test edelim.
         String expectedAllertYazisi="You selected a context menu";
         String actualAllertYazisi=driver.switchTo().alert().getText();
 
